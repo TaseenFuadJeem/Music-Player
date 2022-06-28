@@ -1,5 +1,7 @@
 import { Box, Button, Modal } from '@mui/material';
 import React, { useState } from 'react';
+import AllPlaylist from './AllPlaylist';
+import Songs from './Songs';
 
 const Playlist = () => {
 
@@ -14,7 +16,7 @@ const Playlist = () => {
 
         e.preventDefault();
         const name = e.target.playlistName.value;
-        setPlaylist([...playlist, name]);
+        setPlaylist([...playlist, { name }]);
         e.target.reset();
         handleClose();
 
@@ -34,8 +36,8 @@ const Playlist = () => {
     };
 
     return (
-        <div>
-            <div className='flex justify-center mt-5'><Button onClick={handleOpen} color='primary' variant="contained">Create Playlist</Button></div>
+        <section>
+            <div className='flex justify-center mt-5'><Button onClick={handleOpen} color='inherit' variant="contained">Create Playlist</Button></div>
 
             <Modal
                 open={open}
@@ -51,7 +53,25 @@ const Playlist = () => {
                     </form>
                 </Box>
             </Modal>
-        </div>
+
+            <div className='grid grid-cols-2 gap-9'>
+                <div>
+                    <h1 className='text-center text-lg text-white font-bold underline my-10 underline-offset-2'>Your Songs</h1>
+                    <Songs />
+                </div>
+                <div>
+                    <h1 className='text-center text-lg text-white my-10 font-bold underline underline-offset-2'>Your Playlist</h1>
+                    <div className='flex justify-center'>
+                        {
+                            playlist.map(s => <AllPlaylist
+                                allPlaylist={s.name}
+                            ></AllPlaylist>)
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </section>
     );
 };
 

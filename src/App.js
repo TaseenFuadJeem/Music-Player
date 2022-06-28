@@ -4,9 +4,11 @@ import Playlist from './Components/Playlist/Playlist';
 
 function App() {
   return (
-    <div>
-      <MusicPlayerSlider />
-      <Playlist />
+    <div className=' pt-14 px-32' style={{ backgroundColor: 'darkcyan' }}>
+      <div>
+        <MusicPlayerSlider />
+        <Playlist />
+      </div>
     </div>
   );
 }
