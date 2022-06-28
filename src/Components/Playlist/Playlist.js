@@ -16,9 +16,14 @@ const Playlist = () => {
 
         e.preventDefault();
         const name = e.target.playlistName.value;
-        setPlaylist([...playlist, { name }]);
-        e.target.reset();
-        handleClose();
+
+        if (name === "") {
+            alert('You cannot left the section empty')
+        } else {
+            setPlaylist([...playlist, { name }]);
+            e.target.reset();
+            handleClose();
+        }
 
     }
 
