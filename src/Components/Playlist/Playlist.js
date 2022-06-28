@@ -62,7 +62,7 @@ const Playlist = () => {
             <div className='grid grid-cols-2 gap-9'>
                 <div>
                     <h1 className='text-center text-lg text-white font-bold underline my-10 underline-offset-2'>Your Songs</h1>
-                    <Songs />
+                    <Songs playlist={playlist} />
                 </div>
                 <div>
                     <h1 className='text-center text-lg text-white my-10 font-bold underline underline-offset-2'>Your Playlist</h1>
